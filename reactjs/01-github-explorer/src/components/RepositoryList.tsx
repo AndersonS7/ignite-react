@@ -3,6 +3,12 @@ import { RepositoryItem } from "./RepositoryItem";
 
 import '../styles/repository.scss';
 
+interface Repository{
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 const repository = {
     name: 'unform',
     description: 'Forms in React',
@@ -11,7 +17,7 @@ const repository = {
 
 export function RepositoryList() {
 
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     useEffect(() => {
         fetch('https://api.github.com/users/AndersonS7/repos')
